@@ -1,0 +1,51 @@
+ingredient_name,ins_number,category,safety_category,safety_description,source
+Ethyl ester of beta-apo-8'-,INS 160,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,
+Titanium dioxide,INS 171,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Sodium benzoate,INS 211,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Benzoic acid,INS 210,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Potassium nitrate,INS 252,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Sorbic acid,INS 200,Food Colour,Safe,Generally recognized as safe for consumption within recommended limits.,
+Potassium nitrite,INS 249,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Sodium propionate,INS 281,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Sulphur dioxide,INS 220,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Ammonium bicarbonate,INS 503(ii),Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Trisodium citrate,INS 331,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Fumaric acid,INS 297,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+L (+) - Tartaric acid,INS 334,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+"Calcium hydrogen phosphate, dibasic calcium phosphate",INS 341,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Phosphoric Acid,INS 338,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,
+Citric Acid,INS 330,Food Colour,Safe,Generally recognized as safe for consumption within recommended limits.,
+Malic Acid,INS 296,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+"Caustic soda, lye, sodium hydrate",INS 524,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Sodium alginate,INS 401,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Enzymatically hydrolyzed sodium carboxy methyl,INS 469,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+"Agar-agar, gelose, Japanese isinglass",INS 406,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,
+Acacia gum,INS 414,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Tragacanth gum,INS 413,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Calcium Alginate,INS 404,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Alginic Acid,INS 400,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Guar Gum,INS 412,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+"Karaya, Gum Karaya, Sterculia,",INS 416,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,
+Polyglycerol esters of fatty acids,INS 475,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+glyceran ester of condensed castor oil fatty acids and,INS 476,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,
+Ester Gums,INS 445(iii),Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Pectin,INS 440,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Carrageenan,INS 407,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+BHA,INS 320,Food Additive,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,
+Lauryl gallate,INS 312,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Propyl gallate,INS 310,Food Additive,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,
+Octylgallate,INS 311,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Sodium ascorbate,INS 301,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+"Sodium glutamate, MSG",INS 621,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+"Liquid paraffin, liquid petrolatum,",INS 905,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Propylene glycol,INS 1520,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,
+Sorbitol,INS 420,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,
+Sugar,Unknown,Unknown,Unknown,No safety data available,Not_found_in_FSSAI
+Salt,Unknown,Unknown,Unknown,No safety data available,Not_found_in_FSSAI
+Wheat Flour,Unknown,Unknown,Unknown,No safety data available,Not_found_in_FSSAI
+Milk,Unknown,Unknown,Unknown,No safety data available,Not_found_in_FSSAI
+Egg,Unknown,Unknown,Unknown,No safety data available,Not_found_in_FSSAI
+Soy Lecithin,Unknown,Unknown,Unknown,No safety data available,Not_found_in_FSSAI
+Sodium Benzoate,INS 211,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,Matched_FSSAI
+Titanium Dioxide,INS 171,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,Matched_FSSAI
+Vanilla Extract,Unknown,Unknown,Unknown,No safety data available,Not_found_in_FSSAI

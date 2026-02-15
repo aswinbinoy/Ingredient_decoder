@@ -1,0 +1,30 @@
+product_name,ingredient_name,ins_number,category,safety_category,safety_description,source
+Chocolate Bar,Sugar,None,Sweetener,Safe,"Natural sweetener, safe in moderation",Expert_Knowledge
+Chocolate Bar,Cocoa Butter,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Chocolate Bar,Whole Milk Powder,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Chocolate Bar,Soy Lecithin,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Chocolate Bar,Vanilla Extract,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Soda Drink,Carbonated Water,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Soda Drink,High Fructose Corn Syrup,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Soda Drink,Caramel Color,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Soda Drink,Phosphoric Acid,INS 338,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,FSSAI_Regulation
+Soda Drink,Caffeine,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Soda Drink,Sodium Benzoate,INS 211,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+Candy,Sugar,None,Sweetener,Safe,"Natural sweetener, safe in moderation",Expert_Knowledge
+Candy,Corn Syrup,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Candy,FD&C Red No. 40,INS 129,Food Colour,Harmful,May cause hyperactivity in children,Expert_Knowledge
+Candy,Artificial Flavor,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Candy,Citric Acid,INS 330,Food Colour,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+Candy,Sodium Benzoate,INS 211,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+Bread,Wheat Flour,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Bread,Water,None,Solvent,Safe,"Essential for life, safe",Expert_Knowledge
+Bread,Yeast,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Bread,Salt,None,Seasoning,Safe,"Essential nutrient, safe in moderation",Expert_Knowledge
+Bread,Sugar,None,Sweetener,Safe,"Natural sweetener, safe in moderation",Expert_Knowledge
+Bread,Soy Lecithin,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Bread,Calcium Propionate,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Jam,Strawberries,Not Found,Unknown,Moderate,"Safety classification not available, assumed moderate risk",Default_Classification
+Jam,Sugar,None,Sweetener,Safe,"Natural sweetener, safe in moderation",Expert_Knowledge
+Jam,Pectin,INS 440,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+Jam,Citric Acid,INS 330,Food Colour,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+Jam,Potassium Sorbate,INS 202,Preservative,Moderate,Generally safe but some people may be sensitive,Expert_Knowledge

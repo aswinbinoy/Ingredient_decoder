@@ -1,0 +1,71 @@
+ingredient_name,ins_number,category,safety_category,safety_description,source
+ethyl ester of beta-apo-8'-,INS 160,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,FSSAI_Regulation
+titanium dioxide,INS 171,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+sodium benzoate,INS 211,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+benzoic acid,INS 210,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+potassium nitrate,INS 252,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+sorbic acid,INS 200,Food Colour,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+potassium nitrite,INS 249,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+sodium propionate,INS 281,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+sulphur dioxide,INS 220,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+ammonium bicarbonate,INS 503(ii),Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+trisodium citrate,INS 331,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+fumaric acid,INS 297,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+l (+) - tartaric acid,INS 334,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+"calcium hydrogen phosphate, dibasic calcium phosphate",INS 341,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+phosphoric acid,INS 338,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,FSSAI_Regulation
+citric acid,INS 330,Food Colour,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+malic acid,INS 296,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+"caustic soda, lye, sodium hydrate",INS 524,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+sodium alginate,INS 401,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+enzymatically hydrolyzed sodium carboxy methyl,INS 469,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+"agar-agar, gelose, japanese isinglass",INS 406,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,FSSAI_Regulation
+acacia gum,INS 414,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+tragacanth gum,INS 413,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+calcium alginate,INS 404,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+alginic acid,INS 400,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+guar gum,INS 412,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+"karaya, gum karaya, sterculia,",INS 416,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,FSSAI_Regulation
+polyglycerol esters of fatty acids,INS 475,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+glyceran ester of condensed castor oil fatty acids and,INS 476,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,FSSAI_Regulation
+ester gums,INS 445(iii),Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+pectin,INS 440,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+carrageenan,INS 407,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+bha,INS 320,Food Additive,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,FSSAI_Regulation
+lauryl gallate,INS 312,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+propyl gallate,INS 310,Food Additive,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,FSSAI_Regulation
+octylgallate,INS 311,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+sodium ascorbate,INS 301,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+"sodium glutamate, msg",INS 621,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+"liquid paraffin, liquid petrolatum,",INS 905,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+propylene glycol,INS 1520,Food Colour,Moderate,Safe when consumed within recommended limits; some individuals may be sensitive.,FSSAI_Regulation
+sorbitol,INS 420,Food Additive,Safe,Generally recognized as safe for consumption within recommended limits.,FSSAI_Regulation
+bht,INS 321,Antioxidant,Harmful,Butylated Hydroxytoluene - potential carcinogen,Expert_Knowledge
+tbhq,INS 319,Antioxidant,Harmful,Tertiary Butylhydroquinone - potential carcinogen,Expert_Knowledge
+potassium bromate,INS 924,Flour Treatment Agent,Harmful,Potential carcinogen,Expert_Knowledge
+sodium nitrite,INS 250,Preservative,Harmful,Can form carcinogenic nitrosamines,Expert_Knowledge
+fd&c red no. 40,INS 129,Food Colour,Harmful,May cause hyperactivity in children,Expert_Knowledge
+fd&c yellow no. 5,INS 102,Food Colour,Harmful,May cause allergic reactions,Expert_Knowledge
+fd&c blue no. 1,INS 133,Food Colour,Harmful,May cause allergic reactions,Expert_Knowledge
+potassium sorbate,INS 202,Preservative,Moderate,Generally safe but some people may be sensitive,Expert_Knowledge
+sulfur dioxide,INS 220,Preservative,Moderate,Safe for most people but can cause reactions in asthmatics,Expert_Knowledge
+tartrazine,INS 102,Food Colour,Moderate,Can cause allergic reactions and hyperactivity in some children,Expert_Knowledge
+sunset yellow,INS 155,Food Colour,Moderate,May cause allergic reactions and hyperactivity in some children,Expert_Knowledge
+allura red,INS 129,Food Colour,Moderate,May cause allergic reactions and hyperactivity in some children,Expert_Knowledge
+acesulfame potassium,INS 950,Sweetener,Moderate,Safe within acceptable daily intake levels,Expert_Knowledge
+aspartame,INS 951,Sweetener,Moderate,Safe for most people but contraindicated for phenylketonurics,Expert_Knowledge
+saccharin,INS 954,Sweetener,Moderate,"Safe within limits, was once linked to bladder cancer in rats",Expert_Knowledge
+neotame,INS 961,Sweetener,Moderate,"Newer sweetener, considered safe but less long-term data",Expert_Knowledge
+acesulfame k,INS 950,Sweetener,Moderate,Safe within acceptable daily intake levels,Expert_Knowledge
+sugar,None,Sweetener,Safe,"Natural sweetener, safe in moderation",Expert_Knowledge
+salt,None,Seasoning,Safe,"Essential nutrient, safe in moderation",Expert_Knowledge
+water,None,Solvent,Safe,"Essential for life, safe",Expert_Knowledge
+oil,None,Fat,Safe,"Essential fat, safe in moderation",Expert_Knowledge
+butter,None,Fat,Safe,"Natural dairy fat, safe in moderation",Expert_Knowledge
+milk,None,Dairy,Safe,"Nutritious dairy product, safe for most",Expert_Knowledge
+egg,None,Protein,Safe,"High-quality protein, safe for most",Expert_Knowledge
+flour,None,Grain,Safe,"Basic ingredient, safe for most",Expert_Knowledge
+ascorbic acid,INS 300,Antioxidant,Safe,"Vitamin C, beneficial antioxidant",Expert_Knowledge
+tocopherol,INS 306,Antioxidant,Safe,"Vitamin E, beneficial antioxidant",Expert_Knowledge
+lecithin,INS 322,Emulsifier,Safe,"Natural emulsifier, generally safe",Expert_Knowledge
+xanthan gum,INS 415,Thickener,Safe,"Natural thickener, generally safe",Expert_Knowledge
