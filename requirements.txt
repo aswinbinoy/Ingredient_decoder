@@ -1,4 +1,6 @@
 # Requirements for the Ingredient Decoder project
+
+# Core ML/NLP
 pandas>=1.5.0
 numpy>=1.21.0
 scikit-learn>=1.0.0
@@ -12,5 +14,11 @@ trl>=0.4.0
 datasets>=2.4.0
 sentencepiece
 protobuf
+
+# PDF Processing
 pdfplumber
 tabula-py
+
+# Flask API Backend
+flask>=2.3.0
+flask-cors>=4.0.0

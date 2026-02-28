@@ -1,0 +1,10 @@
+# Backend requirements for Ingredient Decoder API
+flask>=2.3.0
+flask-cors>=4.0.0
+pandas>=1.5.0
+numpy>=1.21.0
+torch>=1.13.0
+transformers>=4.20.0
+peft>=0.4.0
+accelerate>=0.12.0
+bitsandbytes>=0.39.0

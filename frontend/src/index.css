@@ -1,0 +1,456 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Main Card */
+.main-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Input Section */
+.input-section {
+  margin-bottom: 2rem;
+}
+
+.input-section label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.analyze-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.analyze-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+}
+
+.analyze-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Results Section */
+.results-section {
+  margin-top: 2rem;
+}
+
+.results-section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Overall Assessment */
+.assessment-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.assessment-card.safe {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border: 2px solid #28a745;
+}
+
+.assessment-card.moderate {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+  border: 2px solid #ffc107;
+}
+
+.assessment-card.harmful {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+  border: 2px solid #dc3545;
+}
+
+.assessment-card.mixed {
+  background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+  border: 2px solid #17a2b8;
+}
+
+.assessment-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.assessment-card.safe .assessment-title {
+  color: #155724;
+}
+
+.assessment-card.moderate .assessment-title {
+  color: #856404;
+}
+
+.assessment-card.harmful .assessment-title {
+  color: #721c24;
+}
+
+.assessment-card.mixed .assessment-title {
+  color: #0c5460;
+}
+
+.assessment-explanation {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.assessment-card.safe .assessment-explanation {
+  color: #155724;
+}
+
+.assessment-card.moderate .assessment-explanation {
+  color: #856404;
+}
+
+.assessment-card.harmful .assessment-explanation {
+  color: #721c24;
+}
+
+.assessment-card.mixed .assessment-explanation {
+  color: #0c5460;
+}
+
+/* Safety Summary */
+.safety-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-item {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.summary-item.safe {
+  background: #d4edda;
+  border: 1px solid #28a745;
+}
+
+.summary-item.moderate {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+}
+
+.summary-item.harmful {
+  background: #f8d7da;
+  border: 1px solid #dc3545;
+}
+
+.summary-item.unknown {
+  background: #e2e3e5;
+  border: 1px solid #6c757d;
+}
+
+.summary-count {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+}
+
+.summary-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Ingredients List */
+.ingredients-list {
+  margin-bottom: 1.5rem;
+}
+
+.ingredients-list h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.ingredient-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid #667eea;
+}
+
+.ingredient-item.safe {
+  border-left-color: #28a745;
+}
+
+.ingredient-item.moderate {
+  border-left-color: #ffc107;
+}
+
+.ingredient-item.harmful {
+  border-left-color: #dc3545;
+}
+
+.ingredient-item.unknown {
+  border-left-color: #6c757d;
+}
+
+.ingredient-name {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.ingredient-details {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.ingredient-category {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.ingredient-category.safe {
+  background: #28a745;
+  color: white;
+}
+
+.ingredient-category.moderate {
+  background: #ffc107;
+  color: #333;
+}
+
+.ingredient-category.harmful {
+  background: #dc3545;
+  color: white;
+}
+
+.ingredient-category.unknown {
+  background: #6c757d;
+  color: white;
+}
+
+/* Warnings */
+.warnings-section {
+  margin-bottom: 1.5rem;
+}
+
+.warnings-section h3 {
+  color: #dc3545;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.warning-item {
+  background: #fff5f5;
+  border: 1px solid #feb2b2;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.warning-ingredient {
+  font-weight: 600;
+  color: #721c24;
+  margin-bottom: 0.25rem;
+}
+
+.warning-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Health Recommendations */
+.recommendations-section {
+  margin-bottom: 1.5rem;
+}
+
+.recommendations-section h3 {
+  color: #667eea;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.recommendation-item {
+  background: #f0f4ff;
+  border-left: 4px solid #667eea;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 4px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Loading Spinner */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.error-message {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+/* Sample Ingredients */
+.sample-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.sample-section h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.sample-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sample-btn {
+  background: #f8f9fa;
+  border: 1px solid #667eea;
+  color: #667eea;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.sample-btn:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .main-card {
+    padding: 1.5rem;
+  }
+
+  .assessment-title {
+    font-size: 1.4rem;
+  }
+
+  .safety-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
