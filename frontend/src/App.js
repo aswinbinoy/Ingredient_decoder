@@ -41,7 +41,11 @@ function App() {
     "Sugar, Milk Solids, Cocoa Butter, Emulsifiers (Soy Lecithin, INS 322), Natural Vanilla Flavouring",
     "Wheat Flour, Salt, Yeast, Preservatives (Sodium Benzoate, INS 211), Antioxidants (Ascorbic Acid)",
     "Tomato Puree, Salt, Sugar, Acidity Regulator (Citric Acid, INS 330), Preservative (Potassium Sorbate, INS 202)",
-    "Water, High Fructose Corn Syrup, Caramel Color, Phosphoric Acid, Natural Flavors, Caffeine"
+    "Water, High Fructose Corn Syrup, Caramel Color, Phosphoric Acid, Natural Flavors, Caffeine",
+    "Maida (Refined Wheat Flour), Palm Oil, Sugar, Artificial Flavors (Strawberry), Red Color (INS 124), Preservative (Sodium Metabisulphite, INS 223), Antioxidant (BHA, INS 320)",
+    "Carbonated Water, Sugar, Caramel Color (INS 150d), Phosphoric Acid (INS 338), Artificial Sweetener (Aspartame, INS 951), Caffeine, Sodium Benzoate (INS 211)",
+    "Potato Chips: Potatoes, Vegetable Oil (Palm Oil), Salt, Sugar, Monosodium Glutamate (INS 621), Artificial Flavors, Yellow Color (Tartrazine, INS 102), Disodium Inosinate (INS 631), Disodium Guanylate (INS 627)",
+    "Instant Noodles: Wheat Flour, Palm Oil, Salt, Thickeners (INS 401, INS 415), Acidity Regulator (INS 501), Flavor Enhancers (MSG INS 621, IMP INS 631, GMP INS 627), Artificial Colors (INS 102, INS 110), Preservative (INS 220), Antioxidant (TBHQ)"
   ];
 
   const getAssessmentClass = (assessment) => {

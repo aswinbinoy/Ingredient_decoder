@@ -42,7 +42,7 @@ class IngredientDecoder:
         self.model_dir = None
         self.safety_data = None
         self.ingredient_lookup = {}
-        
+
         # Add common basic ingredients as fallback
         self._add_common_ingredients()
 
@@ -53,17 +53,9 @@ class IngredientDecoder:
         # Load safety data for fallback
         if safety_data_path and os.path.exists(safety_data_path):
             self._load_safety_data(safety_data_path)
+            logger.info(f"Safety data loaded from: {safety_data_path}")
         else:
-            # Default paths - prioritize unified database
-            default_paths = [
-                r'data\processed\unified_ingredient_database_full.csv',
-                r'data\processed\comprehensive_ingredient_safety_db.csv',
-                r'data\processed\ingredient_safety_data.csv'
-            ]
-            for path in default_paths:
-                if os.path.exists(path):
-                    self._load_safety_data(path)
-                    break
+            logger.warning("No safety data file provided or found, using only common ingredients fallback")
     
     def _add_common_ingredients(self):
         """Add common basic ingredients as fallback."""
@@ -280,12 +272,35 @@ class IngredientDecoder:
             for _, row in self.safety_data.iterrows():
                 # Try both 'ingredient' and 'ingredient_name' columns
                 ingredient_name = str(row.get('ingredient', row.get('ingredient_name', ''))).lower().strip()
-                if ingredient_name:
+                if not ingredient_name:
+                    continue
+                
+                # Check if this is the extended database format (has safety_category column)
+                if 'safety_category' in row and pd.notna(row['safety_category']):
+                    # Extended database format - direct mapping
+                    safety_category = str(row['safety_category']).strip()
+                    # Normalize category capitalization
+                    if safety_category.lower() == 'safe':
+                        safety_category = 'Safe'
+                    elif safety_category.lower() == 'moderate':
+                        safety_category = 'Moderate'
+                    elif safety_category.lower() == 'harmful':
+                        safety_category = 'Harmful'
+                    
+                    self.ingredient_lookup[ingredient_name] = {
+                        'ins_number': row.get('ins_number', 'Unknown'),
+                        'category': row.get('category', 'Unknown'),
+                        'safety_category': safety_category,
+                        'safety_description': row.get('safety_description', 'Generally recognized as safe'),
+                        'health_impact': row.get('safety_description', 'Generally recognized as safe')
+                    }
+                else:
+                    # Unified database format - derive from multiple columns
                     # Get safety category from various possible columns
                     gras_cat = row.get('gras_category', '')
                     fssai_cat = row.get('fssai_category', '')
                     who_cat = row.get('who_category', '')
-                    
+
                     # Determine overall safety category
                     safety_category = 'Safe'  # Default
                     if gras_cat and isinstance(gras_cat, str):
@@ -300,7 +315,7 @@ class IngredientDecoder:
                             safety_category = 'Harmful'
                         elif 'Moderate Concern' in who_cat and safety_category != 'Harmful':
                             safety_category = 'Moderate'
-                    
+
                     # Build description from available fields
                     description_parts = []
                     if pd.notna(row.get('gras_category')) and row.get('gras_category'):
@@ -311,7 +326,7 @@ class IngredientDecoder:
                         description_parts.append(f"WHO: {row['who_category']}")
                     if pd.notna(row.get('classification_rationale')) and row.get('classification_rationale'):
                         description_parts.append(str(row['classification_rationale']))
-                    
+
                     self.ingredient_lookup[ingredient_name] = {
                         'ins_number': row.get('ins_number', 'Unknown'),
                         'category': row.get('unified_category', row.get('category', 'Unknown')),
@@ -417,52 +432,124 @@ Analyze the ingredient and classify it as Safe, Moderate, or Harmful.
     def _classify_with_safety_data(self, ingredient: str) -> Dict:
         """Classify ingredient using safety data lookup."""
         ingredient_lower = ingredient.lower().strip()
-        
+
         # Direct match
         if ingredient_lower in self.ingredient_lookup:
             return self.ingredient_lookup[ingredient_lower]
-        
+
         # Try removing parentheses content
         ingr_no_paren = re.sub(r'\([^)]*\)', '', ingredient_lower).strip()
         if ingr_no_paren and ingr_no_paren in self.ingredient_lookup:
             return self.ingredient_lookup[ingr_no_paren]
-        
+
         # Try extracting just the main ingredient name (before commas, etc.)
         ingr_main = ingredient_lower.split(',')[0].strip()
         if ingr_main in self.ingredient_lookup:
             return self.ingredient_lookup[ingr_main]
-        
-        # Partial match - check if ingredient contains a known ingredient
-        for ingr_name, data in self.ingredient_lookup.items():
-            if ingr_name in ingredient_lower or ingredient_lower in ingr_name:
-                return data
-        
-        # Check for INS numbers
+
+        # Check for INS numbers FIRST (before partial matching)
         ins_match = re.search(r'INS\s*(\d+)|E(\d+)', ingredient, re.IGNORECASE)
         if ins_match:
             ins_number = ins_match.group(1) if ins_match.group(1) else f"E{ins_match.group(2)}"
             for ingr_name, data in self.ingredient_lookup.items():
-                if str(data.get('ins_number', '')).replace('INS ', '') == ins_number:
+                data_ins = str(data.get('ins_number', '')).replace('INS ', '').strip()
+                if data_ins == ins_number:
                     return data
-        
+
+        # Try matching common ingredient patterns
+        ingredient_patterns = {
+            r'artificial\s*color': 'artificial colors',
+            r'artificial\s*flavor': 'artificial flavors',
+            r'flavor\s*enhancer': 'flavor enhancers',
+            r'preservative.*ins\s*22': 'sodium metabisulphite',
+            r'preservative.*ins\s*20': 'potassium sorbate',
+            r'preservative.*ins\s*21': 'sodium benzoate',
+            r'antioxidant.*ins\s*320': 'bha',
+            r'antioxidant.*ins\s*321': 'bht',
+            r'antioxidant.*ins\s*319': 'tbhq',
+            r'color.*ins\s*102': 'tartrazine',
+            r'color.*ins\s*110': 'sunset yellow fcf',
+            r'color.*ins\s*124': 'red color (ins 124)',
+            r'color.*ins\s*133': 'blue 1',
+            r'color.*ins\s*150': 'caramel color',
+            r'yellow\s*(?:color)?\s*\(?\s*ins\s*102': 'yellow color',
+            r'red\s*(?:color)?\s*\(?\s*ins\s*124': 'red color (ins 124)',
+            r'msg': 'msg',
+            r'imp': 'imp',
+            r'gmp': 'gmp',
+            r'maida': 'maida',
+            r'refined\s*wheat\s*flour': 'maida',
+            r'palm\s*oil': 'palm oil',
+            r'high\s*fructose\s*corn\s*syrup': 'high fructose corn syrup',
+            r'carbonated\s*water': 'carbonated water',
+            r'tomato\s*puree': 'tomato puree',
+            r'milk\s*solid': 'milk solids',
+            r'cocoa\s*butter': 'cocoa butter',
+            r'vanilla\s*flavour': 'natural vanilla flavouring',
+            r'vanilla\s*flavor': 'natural vanilla flavouring',
+            r'soy\s*lecithin': 'soy lecithin',
+            r'lecithin': 'lecithin',
+            r'wheat\s*flour': 'wheat flour',
+            r'sodium\s*benzoate': 'sodium benzoate',
+            r'ascorbic\s*acid': 'ascorbic acid',
+            r'citric\s*acid': 'citric acid',
+            r'potassium\s*sorbate': 'potassium sorbate',
+            r'phosphoric\s*acid': 'phosphoric acid',
+            r'caramel\s*color': 'caramel color',
+            r'natural\s*flavor': 'natural flavors',
+            r'natural\s*flavour': 'natural flavors',
+            r'caffeine': 'caffeine',
+            r'monosodium\s*glutamate': 'monosodium glutamate',
+            r'disodium\s*inosinate': 'disodium inosinate',
+            r'disodium\s*guanylate': 'disodium guanylate',
+            r'tartrazine': 'tartrazine',
+            r'sodium\s*metabisulphite': 'sodium metabisulphite',
+            r'sodium\s*metabisulfite': 'sodium metabisulphite',
+            r'bha': 'bha',
+            r'bht': 'bht',
+            r'tbhq': 'tbhq',
+            r'aspartame': 'aspartame',
+            r'sucralose': 'sucralose',
+            r'sodium\s*nitrite': 'sodium nitrite',
+            r'sodium\s*nitrate': 'sodium nitrate',
+            r'titanium\s*dioxide': 'titanium dioxide',
+            r'yellow\s*5': 'yellow 5',
+            r'red\s*40': 'red 40',
+            r'sunset\s*yellow': 'sunset yellow fcf',
+            r'ponceau\s*4r': 'ponceau 4r',
+            r'thickener': 'thickeners',
+            r'acidity\s*regulator': 'acidity regulator',
+            r'artificial\s*sweetener': 'artificial sweetener',
+        }
+
+        for pattern, lookup_term in ingredient_patterns.items():
+            if re.search(pattern, ingredient_lower):
+                if lookup_term in self.ingredient_lookup:
+                    return self.ingredient_lookup[lookup_term]
+
+        # Partial match - check if ingredient contains a known ingredient
+        for ingr_name, data in self.ingredient_lookup.items():
+            if len(ingr_name) > 3 and ingr_name in ingredient_lower:
+                return data
+
         # Try matching with common variations
         variations = {
-            'high fructose corn syrup': 'corn syrup',
-            'corn syrup': 'high fructose corn syrup',
+            'high fructose corn syrup': 'high fructose corn syrup',
+            'corn syrup': 'corn syrup',
             'phosphoric acid': 'phosphoric acid',
             'caramel color': 'caramel color',
-            'natural flavors': 'natural flavor',
+            'natural flavors': 'natural flavors',
             'natural flavor': 'natural flavors',
             'caffeine': 'caffeine',
             'sodium benzoate': 'sodium benzoate',
             'benzoic acid': 'benzoic acid',
         }
-        
+
         for var, lookup_term in variations.items():
             if var in ingredient_lower:
                 if lookup_term in self.ingredient_lookup:
                     return self.ingredient_lookup[lookup_term]
-        
+
         # Unknown ingredient
         return {
             'ins_number': 'Unknown',
@@ -611,6 +698,9 @@ Analyze the ingredient and classify it as Safe, Moderate, or Harmful.
 # Global decoder instance
 decoder = None
 
+# Get the project root directory (parent of backend/)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 def get_decoder():
     """Get or create the decoder instance."""
@@ -618,10 +708,10 @@ def get_decoder():
     if decoder is None:
         # Find the model - use extracted model directory first, then zip file
         model_paths = [
-            r'models\final_model',
-            'models/final_model',
-            r'models\final_model-20260228T144312Z-1-001.zip',
-            'models/final_model-20260228T144312Z-1-001.zip'
+            os.path.join(PROJECT_ROOT, r'models\final_model'),
+            os.path.join(PROJECT_ROOT, 'models/final_model'),
+            os.path.join(PROJECT_ROOT, r'models\final_model-20260228T144312Z-1-001.zip'),
+            os.path.join(PROJECT_ROOT, 'models/final_model-20260228T144312Z-1-001.zip')
         ]
         model_path = None
         for path in model_paths:
@@ -629,12 +719,17 @@ def get_decoder():
                 model_path = path
                 logger.info(f"Found model at: {path}")
                 break
-        
+
+        # Safety data path - use extended database first
+        safety_data_path = os.path.join(PROJECT_ROOT, r'data\processed\extended_ingredient_safety_db.csv')
+        if not os.path.exists(safety_data_path):
+            safety_data_path = None
+
         if model_path:
-            decoder = IngredientDecoder(model_zip_path=model_path)
+            decoder = IngredientDecoder(model_zip_path=model_path, safety_data_path=safety_data_path)
         else:
             logger.warning("No model found, using rule-based fallback only")
-            decoder = IngredientDecoder()
+            decoder = IngredientDecoder(safety_data_path=safety_data_path)
     return decoder
 
 
